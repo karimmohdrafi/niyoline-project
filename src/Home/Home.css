@@ -1,0 +1,219 @@
+.home-wrapper {
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  
+}
+
+/* Top Section (Hero) */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #0c1b33, #0e2a47);
+  border-radius: 5px;
+}
+
+/* Left Box */
+.hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.home-caption {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: green;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e68900;
+}
+
+.btn-secondary {
+  background: #444;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #222;
+}
+
+/* Right Box (Carousel) */
+.hero-right {
+  flex: 1;
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 40px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  flex-wrap: wrap;
+}
+
+.about-section.show {
+  opacity: 1;
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-left img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.about-right h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.about-right p {
+  margin-bottom: 20px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-left {
+    order: 1;
+  }
+
+  .hero-right {
+    order: 2;
+    width: 100%;
+    height: 250px;
+  }
+
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .about-right h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 1.8rem;
+  }
+
+  .home-caption {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .about-right h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-right p {
+    font-size: 0.95rem;
+  }
+}

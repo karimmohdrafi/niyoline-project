@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+// Components
+import Home from "./Home/Home";
+import ProductSection from "./ProductSection/ProductSection";
+import SocialSection from "./SocialSection/SocialSection";
+import Footer from "./Footer/Footer";
+
+// Pages
+import DieselOilPage from "./DieselOilPage/DieselOilPage";
+import Motorcycle from "./Motorcycle/Motorcycle";
+
+// Create a HomePage component that contains all home page sections
+const HomePage = () => {
+  return (
+    <div>
+      <Home />
+      <ProductSection />
+      <SocialSection />
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Home Page (default route) */}
+        <Route path="/" element={<HomePage />} />
+        
+        {/* Diesel Oil Page - Only this component, nothing else */}
+        <Route path="/diesel-oils" element={<DieselOilPage />} />
+        <Route path="/motorcycle" element={<Motorcycle />} />
+        
+        {/* Add other product pages as needed */}
+        {/* <Route path="/motorcycle-oils" element={<MotorcycleOilPage />} /> */}
+        {/* <Route path="/passenger-car-oils" element={<PassengerCarOilPage />} /> */}
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
